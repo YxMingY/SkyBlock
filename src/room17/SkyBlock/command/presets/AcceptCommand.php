@@ -42,10 +42,12 @@ class AcceptCommand extends IsleCommand {
             $session->sendTranslatedMessage("ACCEPT_USAGE");
             return;
         }
-        $isle = $session->getInvitation($args[0] ?? $session->getLastInvitation());
+        $isle = $session->getInvitation($invitation = $args[0] ?? $session->getLastInvitation());
         if($isle == null) {
             return;
         }
+        $session->setLastInvitation(null);
+        $session->removeInvitation($invitation);
         $session->setRank(iSession::RANK_DEFAULT);
         $session->setIsle($isle);
         $isle->broadcastTranslatedMessage("PLAYER_JOINED_THE_ISLE", [
