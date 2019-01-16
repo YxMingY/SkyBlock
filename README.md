@@ -1,6 +1,6 @@
 # SkyBlock
 > 向原作致敬:https://github.com/GiantQuartz/SkyBlock
->> 本版本修改了Listener,旨在添加接口，以达到适配矿物奖励插件的目的
+>> 本版本修改了Listener,旨在①添加接口:判断玩家是否有破坏所在空岛的权限②采取回避的方式解决砍树计数问题
 >>> 本版本受junxiesky(某服主)委托，尊重原作版权，如有不便请联系
 >>>> 同步拉取原作
 

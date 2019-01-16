@@ -114,6 +114,8 @@ class SkyBlockListener implements Listener {
                 $session->sendTranslatedPopup("MUST_ME_MEMBER");
                 $event->setCancelled();
             } elseif(!($event->isCancelled()) and $event->getBlock() instanceof Solid) {
+                $id=$event->getBlock()->getId();
+                if($id==17 || $id==162) return;
                 $isle->destroyBlock();
             }
         }
@@ -131,6 +133,8 @@ class SkyBlockListener implements Listener {
                 $session->sendTranslatedPopup("MUST_ME_MEMBER");
                 $event->setCancelled();
             } elseif(!($event->isCancelled()) and $event->getBlock() instanceof Solid) {
+                $id=$event->getBlock()->getId();
+                if($id==17 || $id==162) return;
                 $isle->addBlock();
             }
         }
@@ -144,6 +148,8 @@ class SkyBlockListener implements Listener {
         $newBlock = $event->getNewState();
         $isle = $this->isleManager->getIsle($block->getLevel()->getName());
         if($isle != null and !($block instanceof Solid) and $newBlock instanceof Solid) {
+            $id=$event->getBlock()->getId();
+            if($id==17 || $id==162) return;
             $isle->addBlock();
         }
     }
